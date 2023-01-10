@@ -58,7 +58,6 @@ export class MainPanel extends Component {
 
   addTypingListeners = (chatRoomId) => {
     let typingUsers = [];
-    //typing이 새로 들어올 때
     let { typingRef } = this.state;
 
     onChildAdded(child(typingRef, chatRoomId), (DataSnapshot) => {
@@ -71,10 +70,8 @@ export class MainPanel extends Component {
       }
     });
 
-    //listenersList state에 등록된 리스너를 넣어주기
     this.addToListenerLists(chatRoomId, this.state.typingRef, "child_added");
 
-    //typing을 지워줄 때
     onChildRemoved(child(typingRef, chatRoomId), (DataSnapshot) => {
       const index = typingUsers.findIndex(
         (user) => user.id === DataSnapshot.key
@@ -86,13 +83,10 @@ export class MainPanel extends Component {
         this.setState({ typingUsers });
       }
     });
-
-    //listenersList state에 등록된 리스너를 넣어주기
     this.addToListenerLists(chatRoomId, this.state.typingRef, "child_removed");
   };
 
   addToListenerLists = (id, ref, event) => {
-    //이미 등록된 리스너인지 확인
     const index = this.state.listenerLists.findIndex((listener) => {
       return (
         listener.id === id && listener.ref === ref && listener.event === event
