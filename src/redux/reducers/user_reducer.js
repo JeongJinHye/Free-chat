@@ -5,6 +5,7 @@ const initialUserState = {
   isLoading: true,
 };
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default function (state = initialUserState, action) {
   switch (action.type) {
     case SET_USER:
