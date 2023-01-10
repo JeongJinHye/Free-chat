@@ -22,15 +22,9 @@ function App(props) {
         navigate("/");
         dispatch(setUser(user));
 
-        // User is signed in, see docs for a list of available properties
-        // https://firebase.google.com/docs/reference/js/firebase.User
-        const uid = user.uid;
-        // ...
       } else {
         navigate("/login");
         dispatch(clearUser());
-        // User is signed out
-        // ...
       }
     });
   }, []);
