@@ -61,7 +61,7 @@ function LoginPage() {
 
         <input type="submit" disabled={loading} />
         <Link style={{ color: "gray", textDecoration: "none" }} to="/register">
-          아직 아이디가 없다면...{" "}
+          아직 아이디가 없다면{" "}
         </Link>
       </form>
     </div>
